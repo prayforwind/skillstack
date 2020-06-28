@@ -1,0 +1,51 @@
+digraph ICT
+{
+    graph[nodesep=0.1;
+    splines=ortho;
+    ranksep=0.68]
+
+    "C++" -> {CTP, UFX, XTP, Level2} [arrowsize=0.5]
+    Python -> {MySQL, SQLServer, SSH} [arrowsize=0.5]
+    Bash -> Linux[constraint=false] [arrowsize=0.5]
+    Bash -> MySQL [arrowsize=0.5]
+    Linux -> {Zabbix, MySQL, SSH} [arrowsize=0.5]
+    Dell -> Linux[constraint=false] [arrowsize=0.5]
+
+    subgraph cluster_gnu {
+        style=dotted
+        gmake, gdb, gcc
+        {gprof, gcov} -> gcc [constraint=false] [arrowsize=0.5]
+    }
+
+    {gcc, gmake, gdb} -> "C++" [arrowsize=0.5]
+
+    subgraph cluster_app {
+        style=dotted
+        CTP, UFX, XTP, Level2
+    }
+
+    subgraph cluster_cms {
+        style=dotted
+        Git, SVN
+    }
+
+    subgraph cluster_svc {
+        style=dotted
+        MySQL, SQLServer, Zabbix, SSH
+    }
+
+    subgraph cluster_dvc {
+        style=dotted
+        Dell, Cisco, Paloalto
+    }
+
+    subgraph cluster_dev {
+        style=dotted
+        "C++", Python, Bash
+    }
+
+    label="A software engineer with system administration background, 
+    working under low fault tolerance and high performance.\n\n"
+    labelloc="t"
+    fontsize=20
+}
