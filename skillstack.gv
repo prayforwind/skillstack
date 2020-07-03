@@ -21,6 +21,8 @@ digraph ICT
 
     subgraph cluster_app {
         style=dotted
+        label="OLTP"
+        labelloc=b
         CTP, UFX, XTP, Level2
     }
 
@@ -31,6 +33,8 @@ digraph ICT
 
     subgraph cluster_svc {
         style=dotted
+        label="OLAP"
+        labelloc=b
         MySQL, SQLServer, Zabbix, SSH
     }
 
